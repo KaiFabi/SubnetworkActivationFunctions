@@ -1,0 +1,30 @@
+training:
+  learning_rate: 3.0e-4
+  epochs: 250
+  batch_size: 1024
+  dropout_rate: 0.5
+
+network:
+  type: "mlp"
+  units_dense: [1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024]
+  #type: "cnn"
+  #units_conv: [32, 64, 128]
+  #units_dense: [256, 256]
+  activation_function: "leaky_relu"
+
+subnetwork:
+  use_subnet: True
+  units: [1, 4, 4, 4, 1]
+  activation_function: "sin"
+
+dataset:
+  name: "fashion_mnist"
+  n_classes: 10
+  image_height: 28
+  image_width: 28
+  n_channels: 1
+
+paths:
+  stats: "./logs/stats/"
+  model: "./logs/models/"
+  results: "./results/"
